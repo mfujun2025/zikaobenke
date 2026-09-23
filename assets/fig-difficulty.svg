@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 430" font-family="-apple-system,Segoe UI,PingFang SC,Microsoft YaHei,Noto Sans SC,sans-serif">
+  <rect width="760" height="430" fill="#ffffff"/>
+  <rect x="0" y="0" width="760" height="64" fill="#1f4e8c"/>
+  <text x="28" y="40" fill="#ffffff" font-size="24" font-weight="700">自考本科：课程构成与通过率口径</text>
+
+  <text x="28" y="104" fill="#14181f" font-size="17" font-weight="700">一、课程构成（多数专业 12–16 门）</text>
+  <g font-size="14" fill="#3d4653">
+    <rect x="28" y="120" width="220" height="30" rx="6" fill="#e8f0fa"/>
+    <text x="40" y="140">公共课 · 约 4 门</text>
+    <rect x="28" y="158" width="430" height="30" rx="6" fill="#1f4e8c"/>
+    <text x="40" y="178" fill="#fff">专业核心课 · 约 7 门</text>
+    <rect x="28" y="196" width="150" height="30" rx="6" fill="#c8551a"/>
+    <text x="40" y="216" fill="#fff">选修课 · 约 3–5 门</text>
+  </g>
+  <text x="28" y="256" fill="#6b7684" font-size="13.5">含公共课、专业核心课与选修课；具体门数与结构以你所在省课程计划为准。</text>
+
+  <text x="28" y="300" fill="#14181f" font-size="17" font-weight="700">二、通过率 10%–30% 到底指什么</text>
+  <rect x="28" y="316" width="704" height="86" rx="10" fill="#fdf0e8" stroke="#f6ddcb"/>
+  <text x="44" y="346" fill="#c8551a" font-size="14.5" font-weight="700">常见误读</text>
+  <text x="44" y="372" fill="#3d4653" font-size="14">把 10%–30% 当成「单科及格率」——其实它是「毕业人数 ÷ 报名人数」的比值。</text>
+  <text x="44" y="394" fill="#1c7a52" font-size="14.5" font-weight="700">正确理解</text>
+  <text x="44" y="392" fill="#3d4653" font-size="14"></text>
+  <text x="200" y="392" fill="#3d4653" font-size="14">单科及格率远高于此；拖长周期的是课程数量、考试计划与补考节奏。</text>
+
+  <text x="28" y="424" fill="#9aa6b4" font-size="12">自考本科指南 · 仅供概念建立，具体以官方公告为准</text>
+</svg>

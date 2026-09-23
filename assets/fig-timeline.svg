@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 430" font-family="-apple-system,Segoe UI,PingFang SC,Microsoft YaHei,Noto Sans SC,sans-serif">
+  <rect width="760" height="430" fill="#ffffff"/>
+  <rect x="0" y="0" width="760" height="64" fill="#1f4e8c"/>
+  <text x="28" y="40" fill="#ffffff" font-size="24" font-weight="700">自考本科拿证时间：三个变量</text>
+
+  <text x="28" y="104" fill="#14181f" font-size="17" font-weight="700">一、自己算周期的公式</text>
+  <rect x="28" y="120" width="704" height="92" rx="10" fill="#f7f9fb" stroke="#e3e7ec"/>
+  <text x="44" y="152" fill="#3d4653" font-size="15">课程总数 ÷（每年考试次数 × 每次可报科目上限）</text>
+  <text x="44" y="180" fill="#3d4653" font-size="15">= 最少需要的考试轮次 → × 半年 ≈ 理论最短毕业时间</text>
+  <text x="500" y="152" fill="#c8551a" font-size="14.5" font-weight="700">任何短于这个数的承诺</text>
+  <text x="500" y="180" fill="#c8551a" font-size="14.5" font-weight="700">都不成立</text>
+
+  <text x="28" y="244" fill="#14181f" font-size="17" font-weight="700">二、现实节奏</text>
+  <g font-size="14">
+    <rect x="28" y="260" width="336" height="64" rx="10" fill="#e8f5ef" stroke="#cfe9dd"/>
+    <text x="44" y="288" fill="#1c7a52" font-size="15" font-weight="700">理想情况 1.5–2 年</text>
+    <text x="44" y="312" fill="#3d4653" font-size="13.5">每次报满并通过、无补考</text>
+    <rect x="396" y="260" width="336" height="64" rx="10" fill="#fdf0e8" stroke="#f6ddcb"/>
+    <text x="412" y="288" fill="#c8551a" font-size="15" font-weight="700">常见情况 2.5–3 年</text>
+    <text x="412" y="312" fill="#3d4653" font-size="13.5">受考试计划、课程安排、及格率影响</text>
+  </g>
+
+  <text x="28" y="360" fill="#6b7684" font-size="13.5">易被漏掉的流程时间：免考办理、论文周期、毕业申请窗口，每一项都可能让整体再延后半年。</text>
+  <text x="28" y="424" fill="#9aa6b4" font-size="12">自考本科指南 · 仅供概念建立，具体以官方公告为准</text>
+</svg>

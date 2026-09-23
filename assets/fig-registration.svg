@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 430" font-family="-apple-system,Segoe UI,PingFang SC,Microsoft YaHei,Noto Sans SC,sans-serif">
+  <rect width="760" height="430" fill="#ffffff"/>
+  <rect x="0" y="0" width="760" height="64" fill="#1f4e8c"/>
+  <text x="28" y="40" fill="#ffffff" font-size="24" font-weight="700">自考本科报名六步流程</text>
+
+  <g font-size="14">
+    <rect x="28" y="110" width="200" height="92" rx="10" fill="#e8f0fa"/>
+    <text x="44" y="142" fill="#163a69" font-size="16" font-weight="700">① 新生注册</text>
+    <text x="44" y="168" fill="#3d4653" font-size="13">在省教育考试院</text>
+    <text x="44" y="188" fill="#3d4653" font-size="13">官网建考籍</text>
+
+    <rect x="250" y="110" width="200" height="92" rx="10" fill="#e8f0fa"/>
+    <text x="266" y="142" fill="#163a69" font-size="16" font-weight="700">② 选课报考</text>
+    <text x="266" y="168" fill="#3d4653" font-size="13">按考试计划选</text>
+    <text x="266" y="188" fill="#3d4653" font-size="13">当次报考科目</text>
+
+    <rect x="472" y="110" width="260" height="92" rx="10" fill="#e8f0fa"/>
+    <text x="488" y="142" fill="#163a69" font-size="16" font-weight="700">③ 缴费与备考</text>
+    <text x="488" y="168" fill="#3d4653" font-size="13">缴报考费，按大纲</text>
+    <text x="488" y="188" fill="#3d4653" font-size="13">与教材复习</text>
+
+    <rect x="28" y="230" width="200" height="92" rx="10" fill="#1f4e8c"/>
+    <text x="44" y="262" fill="#fff" font-size="16" font-weight="700">④ 参加考试</text>
+    <text x="44" y="288" fill="#cfe0f5" font-size="13">4 月 / 10 月统考</text>
+    <text x="44" y="308" fill="#cfe0f5" font-size="13">（部分省有增考）</text>
+
+    <rect x="250" y="230" width="200" height="92" rx="10" fill="#e8f0fa"/>
+    <text x="266" y="262" fill="#163a69" font-size="16" font-weight="700">⑤ 查分与申请</text>
+    <text x="266" y="288" fill="#3d4653" font-size="13">考后查分，全部</text>
+    <text x="266" y="308" fill="#3d4653" font-size="13">通过后申毕业</text>
+
+    <rect x="472" y="230" width="260" height="92" rx="10" fill="#e8f0fa"/>
+    <text x="488" y="262" fill="#163a69" font-size="16" font-weight="700">⑥ 领证 / 准考证</text>
+    <text x="488" y="288" fill="#3d4653" font-size="13">考前打印准考证</text>
+    <text x="488" y="308" fill="#3d4653" font-size="13">毕业发学历证书</text>
+  </g>
+
+  <rect x="28" y="346" width="704" height="56" rx="10" fill="#fdf0e8" stroke="#f6ddcb"/>
+  <text x="44" y="378" fill="#c8551a" font-size="14.5" font-weight="700">唯一官方入口</text>
+  <text x="160" y="378" fill="#3d4653" font-size="14">是你所在省教育考试院官网，不存在「第三方代报名」绕过官方系统的渠道。</text>
+
+  <text x="28" y="424" fill="#9aa6b4" font-size="12">自考本科指南 · 流程为通用梳理，具体节点以官方公告为准</text>
+</svg>

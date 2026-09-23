@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 430" font-family="-apple-system,Segoe UI,PingFang SC,Microsoft YaHei,Noto Sans SC,sans-serif">
+  <rect width="760" height="430" fill="#ffffff"/>
+  <rect x="0" y="0" width="760" height="56" fill="#1f4e8c"/>
+  <text x="28" y="36" fill="#ffffff" font-size="22" font-weight="700">四条学历路径对照</text>
+
+  <g font-size="13.5">
+    <rect x="28" y="72" width="150" height="40" rx="6" fill="#e8f0fa"/>
+    <text x="40" y="97" fill="#163a69" font-weight="700">路径</text>
+    <rect x="186" y="72" width="130" height="40" rx="6" fill="#eef1f5"/>
+    <text x="196" y="97">入学门槛</text>
+    <rect x="324" y="72" width="110" height="40" rx="6" fill="#eef1f5"/>
+    <text x="336" y="97">考试难度</text>
+    <rect x="442" y="72" width="110" height="40" rx="6" fill="#eef1f5"/>
+    <text x="452" y="97">拿证时间</text>
+    <rect x="560" y="72" width="90" height="40" rx="6" fill="#eef1f5"/>
+    <text x="570" y="97">费用</text>
+    <rect x="658" y="72" width="74" height="40" rx="6" fill="#eef1f5"/>
+    <text x="668" y="97">认可度</text>
+
+    <rect x="28" y="120" width="150" height="56" rx="6" fill="#1f4e8c"/>
+    <text x="40" y="153" fill="#fff" font-weight="700">自考本科</text>
+    <rect x="186" y="120" width="130" height="56" rx="6" fill="#f7f9fb"/>
+    <text x="196" y="153">无门槛注册</text>
+    <rect x="324" y="120" width="110" height="56" rx="6" fill="#fdf0e8"/>
+    <text x="334" y="153" fill="#c8551a" font-weight="700">高</text>
+    <rect x="442" y="120" width="110" height="56" rx="6" fill="#f7f9fb"/>
+    <text x="452" y="153">1.5–3 年</text>
+    <rect x="560" y="120" width="90" height="56" rx="6" fill="#f7f9fb"/>
+    <text x="570" y="153">低–中</text>
+    <rect x="658" y="120" width="74" height="56" rx="6" fill="#e8f5ef"/>
+    <text x="666" y="153" fill="#1c7a52" font-weight="700">较高</text>
+
+    <rect x="28" y="184" width="150" height="56" rx="6" fill="#e8f0fa"/>
+    <text x="40" y="217" font-weight="700">成人高考</text>
+    <rect x="186" y="184" width="130" height="56" rx="6" fill="#f7f9fb"/>
+    <text x="196" y="217">需参加统考</text>
+    <rect x="324" y="184" width="110" height="56" rx="6" fill="#fff7e8"/>
+    <text x="334" y="217" font-weight="700">中</text>
+    <rect x="442" y="184" width="110" height="56" rx="6" fill="#f7f9fb"/>
+    <text x="452" y="217">2.5–3 年</text>
+    <rect x="560" y="184" width="90" height="56" rx="6" fill="#f7f9fb"/>
+    <text x="570" y="217">中</text>
+    <rect x="658" y="184" width="74" height="56" rx="6" fill="#eef1f5"/>
+    <text x="666" y="217">中</text>
+
+    <rect x="28" y="248" width="150" height="56" rx="6" fill="#e8f0fa"/>
+    <text x="40" y="281" font-weight="700">开放大学</text>
+    <rect x="186" y="248" width="130" height="56" rx="6" fill="#f7f9fb"/>
+    <text x="196" y="281">注册入学</text>
+    <rect x="324" y="248" width="110" height="56" rx="6" fill="#e8f5ef"/>
+    <text x="334" y="281" fill="#1c7a52" font-weight="700">较低</text>
+    <rect x="442" y="248" width="110" height="56" rx="6" fill="#f7f9fb"/>
+    <text x="452" y="281">2.5–3 年</text>
+    <rect x="560" y="248" width="90" height="56" rx="6" fill="#f7f9fb"/>
+    <text x="570" y="281">中</text>
+    <rect x="658" y="248" width="74" height="56" rx="6" fill="#eef1f5"/>
+    <text x="666" y="281">中</text>
+
+    <rect x="28" y="312" width="150" height="56" rx="6" fill="#e8f0fa"/>
+    <text x="40" y="345" font-weight="700">普通统招</text>
+    <rect x="186" y="312" width="130" height="56" rx="6" fill="#f7f9fb"/>
+    <text x="196" y="345">高考/专升本</text>
+    <rect x="324" y="312" width="110" height="56" rx="6" fill="#fdf0e8"/>
+    <text x="334" y="345" fill="#c8551a" font-weight="700">高</text>
+    <rect x="442" y="312" width="110" height="56" rx="6" fill="#f7f9fb"/>
+    <text x="452" y="345">全日制</text>
+    <rect x="560" y="312" width="90" height="56" rx="6" fill="#f7f9fb"/>
+    <text x="570" y="345">高</text>
+    <rect x="658" y="312" width="74" height="56" rx="6" fill="#e8f5ef"/>
+    <text x="666" y="345" fill="#1c7a52" font-weight="700">最高</text>
+  </g>
+  <text x="28" y="396" fill="#6b7684" font-size="13.5">自考含金量在成人学历里最高、难度也最高；是否值得，看你的用途认不认自考。</text>
+  <text x="28" y="424" fill="#9aa6b4" font-size="12">自考本科指南 · 横向对照仅供决策参考，具体以官方政策为准</text>
+</svg>
