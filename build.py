@@ -15,7 +15,7 @@
 - 生成 sitemap.xml / robots.txt / CNAME
 所有变换幂等（带标记守卫），可重复运行。
 """
-import os, re, glob
+import os, re, glob, json
 
 ROOT = os.path.dirname(os.path.abspath(__file__))
 # 技术 URL 用 punycode，保证机器可读（sitemap/canonical/og/robots 合规）
@@ -202,6 +202,126 @@ INFOGRAPHICS = {
 }
 
 
+# ---- 资讯文章登记（news/ 目录下的文章页）----
+# slug   : 文件名，对应 news/<slug>.html
+# title  : ≤30 全角字，口语问句形态，含目标长尾词
+# desc   : ≤80 全角字
+# date   : 发布日期（刷新正文时同步改这里与 dateModified）
+# kw     : 目标长尾词（自检用）
+# next   : 文末「下一步」链回的栏目页（锚文本用描述性文字，不用「点击查看」）
+ARTICLES = [
+    {
+        'slug': 'exam-day-checklist',
+        'title': '自考考试当天要注意什么？进场时间、必带物品与答题卡填法',
+        'desc': '自考考试当天全流程拆解：几点进场、必带证件与文具、禁带物品、答题卡填涂与时间分配，考前一周照着核对即可。',
+        'date': '2026-09-23',
+        'kw': '自考考试当天',
+        'next': [('registration.html', '自考本科报名入口怎么确认'),
+                 ('timeline.html', '自考本科多久能拿证')],
+    },
+    {
+        'slug': 'answer-skills',
+        'title': '自考答题技巧有哪些？选择、名词解释、简答、论述怎么拿分',
+        'desc': '按题型拆解答题策略：选择题排除法、名词解释公式、简答分点作答、论述总—分—总，以及绝不留空白的底线原则。',
+        'date': '2026-09-23',
+        'kw': '自考答题技巧',
+        'next': [('difficulty.html', '自考本科到底难不难'),
+                 ('registration.html', '自考本科报名入口怎么确认')],
+    },
+]
+
+ART_DIR = 'news'
+
+
+def gen_article_head(a):
+    """文章页 <head>：元信息 + Article 结构化数据（补 E-E-A-T 时效与署名信号）"""
+    url = '%s/%s/%s.html' % (SITE, ART_DIR, a['slug'])
+    ld = {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": a['title'],
+        "description": a['desc'],
+        "datePublished": a['date'],
+        "dateModified": a['date'],
+        "author": {"@type": "Organization", "name": SITE_NAME + "编辑部"},
+        "publisher": {"@type": "Organization", "name": SITE_NAME},
+        "mainEntityOfPage": {"@type": "WebPage", "@id": url},
+        "inLanguage": "zh-CN",
+    }
+    return (
+        '<title>%s</title>\n'
+        '<meta name="description" content="%s">\n'
+        '<link rel="canonical" href="%s">\n'
+        '<meta property="og:type" content="article">\n'
+        '<meta property="og:title" content="%s">\n'
+        '<meta property="og:description" content="%s">\n'
+        '<meta property="og:url" content="%s">\n'
+        '<meta property="og:image" content="%s/assets/og-cover.png">\n'
+        '<meta property="og:site_name" content="%s">\n'
+        '<meta name="twitter:card" content="summary_large_image">\n'
+        '<link rel="apple-touch-icon" href="%s/assets/favicon-180.png">\n'
+        '<script type="application/ld+json">%s</script>'
+        % (a['title'], a['desc'], url, a['title'], a['desc'], url, SITE, SITE_NAME, SITE,
+           json.dumps(ld, ensure_ascii=False))
+    )
+
+
+def transform_article(html, a):
+    """文章页后处理：换 head、补导航/面包屑/署名日期/下一步/页脚"""
+    # 清垃圾属性
+    html = re.sub(r'\s*data-page-node-id="[^"]*"', '', html)
+    html = html.replace('https://example.com', SITE)
+    html = re.sub(r'<meta name="keywords"[^>]*>\s*', '', html)
+    # head：先把本函数此前注入过的元信息全部清掉，再整段注入。
+    # ⚠️ 这步是幂等的关键 —— 只删 title/description 的话，canonical / og / ld+json
+    #    每跑一次就会多叠一份（实测跑 3 次变 3 份 JSON-LD）。
+    html = re.sub(r'<title>.*?</title>', '', html, flags=re.S)
+    html = re.sub(r'<meta name="description"[^>]*>\s*', '', html)
+    html = re.sub(r'<link rel="canonical"[^>]*>\s*', '', html)
+    html = re.sub(r'<meta property="og:[^>]*>\s*', '', html)
+    html = re.sub(r'<meta name="twitter:[^>]*>\s*', '', html)
+    html = re.sub(r'<link rel="apple-touch-icon"[^>]*>\s*', '', html)
+    html = re.sub(r'<script type="application/ld\+json">.*?</script>\s*', '', html, flags=re.S)
+    html = html.replace('</head>', gen_article_head(a) + '\n</head>')
+    nav = '<nav class="nav" aria-label="主导航">' + ''.join(
+        '<a href="../%s"%s>%s</a>' % (f, ' class="is-active"' if f == 'news.html' else '', lab)
+        for f, lab in NAV) + '</nav>'
+    html = re.sub(r'<nav class="nav"[^>]*>.*?</nav>', nav, html, flags=re.S)
+    # 面包屑
+    crumb = ('<div class="wrap"><nav class="crumb" aria-label="面包屑">'
+             '<a href="../index.html">首页</a> › <a href="../news.html">资讯</a> › <span>%s</span>'
+             '</nav></div>' % a['kw'])
+    if 'class="crumb"' not in html:
+        html = html.replace('<main>', crumb + '\n<main>')
+    # 日期 + 署名（页面可见，补时效信号）
+    byline = ('<p class="byline" style="font-size:13.5px;color:var(--ink-3);margin:0 0 18px">'
+              '%s编辑部 · 更新于 %s</p>' % (SITE_NAME, a['date']))
+    if 'class="byline"' not in html:
+        html = re.sub(r'(</h1>)', r'\1\n' + byline, html, count=1)
+    # 文末「下一步」内链
+    if 'NEXT-MARK' not in html:
+        cards = ''.join(
+            '<a class="card" href="../%s"><h3>%s</h3></a>' % (f, t) for f, t in a['next'])
+        sec = ('<section class="section"><div class="wrap"><div class="section-head">'
+               '<h2>下一步该看什么</h2></div><div class="grid cols-2">%s</div>'
+               '</div></section><!--NEXT-MARK-->' % cards)
+        html = html.replace('</main>', sec + '\n</main>')
+    # 页脚
+    if 'site-footer' not in html:
+        html = html.replace('</body>', gen_footer().replace('href="', 'href="../') + '\n</body>')
+    return html
+
+
+def gen_news_list():
+    """news.html 列表页的文章卡片（按登记顺序倒序，新文在前）"""
+    items = sorted(ARTICLES, key=lambda x: x['date'], reverse=True)
+    return ''.join(
+        '<a class="card" href="%s/%s.html"><h3>%s</h3>'
+        '<p style="font-size:14px;color:var(--ink-2);margin:8px 0 0">%s</p>'
+        '<p style="font-size:13px;color:var(--ink-3);margin:8px 0 0">更新于 %s</p></a>'
+        % (ART_DIR, x['slug'], x['title'], x['desc'], x['date']) for x in items)
+
+
 def gen_footer():
     decision = ''.join('<li><a href="%s">%s</a></li>' % (f, NAV_LABEL[f])
                        for f in ['recognition.html','comparison.html','difficulty.html','majors.html','policy.html','timeline.html','cost.html','registration.html','agencies.html'])
@@ -353,6 +473,12 @@ def gen_sitemap():
         urls.append('  <url>\n    <loc>%s</loc>\n    <lastmod>%s</lastmod>\n'
                     '    <changefreq>%s</changefreq>\n    <priority>%s</priority>\n  </url>'
                     % (loc, DATE, p['freq'], p['priority']))
+    # 资讯文章页自动追加（无需手工维护 sitemap）
+    for a in ARTICLES:
+        loc = '%s/%s/%s.html' % (SITE, ART_DIR, a['slug'])
+        urls.append('  <url>\n    <loc>%s</loc>\n    <lastmod>%s</lastmod>\n'
+                    '    <changefreq>monthly</changefreq>\n    <priority>0.6</priority>\n  </url>'
+                    % (loc, a['date']))
     return ('<?xml version="1.0" encoding="UTF-8"?>\n'
             '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
             + '\n'.join(urls) + '\n</urlset>\n')
@@ -360,8 +486,14 @@ def gen_sitemap():
 
 def main():
     # 全量页面（含 B 层），404 仅做基础清理
+    # ⚠️ 跳过名单：这些文件必须原样保留，build 一律不碰
+    #   - baidu_verify_*.html 百度站点验证文件，内容是裸哈希，被塞进任何 HTML 都会导致验证失效
+    SKIP = {'baidu_verify_codeva-VEue2u0Dge.html'}
     pages = [os.path.basename(p) for p in glob.glob(os.path.join(ROOT, '*.html'))]
     for page in sorted(pages):
+        if page in SKIP:
+            print('skip (原样保留):', page)
+            continue
         path = os.path.join(ROOT, page)
         html = open(path, encoding='utf-8').read()
         if page == '404.html':
@@ -376,6 +508,31 @@ def main():
             html = transform(html, page)
         open(path, 'w', encoding='utf-8').write(html)
         print('built:', page)
+
+    # 资讯文章页（news/ 子目录）
+    for a in ARTICLES:
+        path = os.path.join(ROOT, ART_DIR, a['slug'] + '.html')
+        if not os.path.exists(path):
+            print('skip (缺正文):', ART_DIR + '/' + a['slug'] + '.html')
+            continue
+        html = open(path, encoding='utf-8').read()
+        html = transform_article(html, a)
+        open(path, 'w', encoding='utf-8').write(html)
+        print('built:', ART_DIR + '/' + a['slug'] + '.html')
+
+    # news.html 列表页自动追加文章卡片
+    npath = os.path.join(ROOT, 'news.html')
+    if os.path.exists(npath):
+        nh = open(npath, encoding='utf-8').read()
+        block = '<div class="grid cols-2">%s</div><!--NEWS-LIST-MARK-->' % gen_news_list()
+        if 'NEWS-LIST-MARK' in nh:
+            nh = re.sub(r'<div class="grid cols-2">.*?<!--NEWS-LIST-MARK-->', block, nh, flags=re.S)
+        else:
+            sec = ('<section class="section"><div class="wrap"><div class="section-head">'
+                   '<h2>最新文章</h2></div>%s</div></section>' % block)
+            nh = nh.replace('</main>', sec + '\n</main>')
+        open(npath, 'w', encoding='utf-8').write(nh)
+        print('built: news.html（文章列表 %d 条）' % len(ARTICLES))
 
     # sitemap / robots / CNAME
     open(os.path.join(ROOT, 'sitemap.xml'), 'w', encoding='utf-8').write(gen_sitemap())
