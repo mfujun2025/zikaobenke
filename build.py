@@ -228,6 +228,15 @@ ARTICLES = [
         'next': [('difficulty.html', '自考本科到底难不难'),
                  ('registration.html', '自考本科报名入口怎么确认')],
     },
+    {
+        'slug': 'past-papers',
+        'title': '自考真题怎么用才有效？三刷法与错题复盘模板',
+        'desc': '真题不是做完对答案就完了。一刷摸底标高频章节、二刷只攻错题、三刷限时模拟，配错因四分类复盘模板，把同一套题榨出三倍价值。',
+        'date': '2026-09-25',
+        'kw': '自考真题怎么用',
+        'next': [('difficulty.html', '自考本科到底难不难'),
+                 ('textbooks.html', '自考本科教材怎么选版本')],
+    },
 ]
 
 ART_DIR = 'news'
