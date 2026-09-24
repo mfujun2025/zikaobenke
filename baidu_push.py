@@ -19,7 +19,7 @@ token 从哪来：
     脚本已按 8 条一批切分，遇配额耗尽会自动停手并提示剩余数量，
     剩下的次日再跑即可（配额每日重置）。
 """
-import sys, json, ssl, re, os, urllib.request, urllib.error
+import sys, json, ssl, re, os, time, urllib.request, urllib.error
 
 SITE = "https://xn--8pvy82b5pew4b.com"
 SITEMAP = os.path.join(os.path.dirname(os.path.abspath(__file__)), "sitemap.xml")
