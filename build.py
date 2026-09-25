@@ -237,6 +237,15 @@ ARTICLES = [
         'next': [('difficulty.html', '自考本科到底难不难'),
                  ('textbooks.html', '自考本科教材怎么选版本')],
     },
+    {
+        'slug': 'bare-exam',
+        'title': '自考裸考能过吗？哪些科目能搏，哪些千万别赌',
+        'desc': '裸考不是稳过也不是没戏，关键看题型结构：客观题占比高的公共课还有的搏，名词解释与论述为主的专业课基本没戏。附考前 72 小时抢救流程。',
+        'date': '2026-09-26',
+        'kw': '自考裸考',
+        'next': [('difficulty.html', '自考本科到底难不难'),
+                 ('news/past-papers.html', '自考真题怎么用才有效')],
+    },
 ]
 
 ART_DIR = 'news'
@@ -316,8 +325,15 @@ def transform_article(html, a):
                '</div></section><!--NEXT-MARK-->' % cards)
         html = html.replace('</main>', sec + '\n</main>')
     # 页脚
+    # ⚠️ 只给「站内相对链接」加 ../ 前缀；外链（http(s)://）必须原样保留。
+    #    早期版本用 gen_footer().replace('href="', 'href="../')，会把
+    #    https://www.neea.edu.cn 改成 ../https://www.neea.edu.cn，页脚三条权威外链全废。
+    footer_html = re.sub(r'href="(?!https?://|#|mailto:)', 'href="../', gen_footer())
     if 'site-footer' not in html:
-        html = html.replace('</body>', gen_footer().replace('href="', 'href="../') + '\n</body>')
+        html = html.replace('</body>', footer_html + '\n</body>')
+    else:
+        # 已存在页脚时也要重建，否则历史文章的坏外链永远修不回来
+        html = re.sub(r'<footer class="site-footer">.*?</footer>', footer_html, html, flags=re.S)
     return html
 
 
