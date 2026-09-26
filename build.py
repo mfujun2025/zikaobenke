@@ -246,6 +246,15 @@ ARTICLES = [
         'next': [('difficulty.html', '自考本科到底难不难'),
                  ('news/past-papers.html', '自考真题怎么用才有效')],
     },
+    {
+        'slug': 'admission-ticket',
+        'title': '自考准考证什么时候打印？入口、信息有误与丢失怎么办',
+        'desc': '自考准考证打印时间、官方入口与三个高频故障：信息错了怎么处理、丢了能不能重打、忘带会怎样。考前一周照着核对即可。',
+        'date': '2026-09-27',
+        'kw': '自考准考证打印',
+        'next': [('registration.html', '自考本科报名入口怎么确认'),
+                 ('news/exam-day-checklist.html', '自考考试当天要注意什么')],
+    },
 ]
 
 ART_DIR = 'news'
