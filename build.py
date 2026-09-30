@@ -282,6 +282,15 @@ ARTICLES = [
         'next': [('difficulty.html', '自考本科到底难不难'),
                  ('news/plan-transition.html', '新旧计划衔接对照表怎么用')],
     },
+    {
+        'slug': 'textbooks-buy',
+        'title': '自考教材怎么买不吃亏？版本核对、盗版识别与旧书能不能用',
+        'desc': '买教材四步法：查官方教材目录、核对书名作者出版社版次四项、五个特征识别盗版、按课程代码判断旧书能不能用。附辅导资料优先级排序。',
+        'date': '2026-10-01',
+        'kw': '自考教材怎么买',
+        'next': [('textbooks.html', '自考本科教材怎么核对版本'),
+                 ('news/new-plan-2026.html', '2026 自考新考试计划改了什么')],
+    },
 ]
 
 ART_DIR = 'news'
