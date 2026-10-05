@@ -653,15 +653,17 @@ def gen_news_list():
 
 
 def gen_footer():
-    decision = ''.join('<li><a href="%s">%s</a></li>' % (f, NAV_LABEL[f])
-                       for f in ['recognition.html','comparison.html','difficulty.html','majors.html','policy.html','timeline.html','cost.html','registration.html','agencies.html'])
+    d1 = ''.join('<li><a href="%s">%s</a></li>' % (f, NAV_LABEL[f])
+                 for f in ['recognition.html','comparison.html','difficulty.html','majors.html','policy.html'])
+    d2 = ''.join('<li><a href="%s">%s</a></li>' % (f, NAV_LABEL[f])
+                 for f in ['timeline.html','cost.html','registration.html','agencies.html'])
     info = ''.join('<li><a href="%s">%s</a></li>' % (f, NAV_LABEL[f])
                    for f in ['outline.html','textbooks.html','news.html','faq.html','about.html'])
     return ('''<footer class="site-footer"><!--FOOTER-MARK-->
   <div class="wrap">
     <div class="footer-grid">
       <div><h3>自考本科指南</h3><p style="margin:0;font-size:14.5px;line-height:1.8">围绕「自考本科」这个关键词，把常见疑问拆开讲透：能不能考、值不值得考、花多少钱、多久拿证、找谁报名不踩坑。</p></div>
-      <div><h3>决策指南</h3><ul>__DECISION__</ul></div>
+      <div><h3>决策指南</h3><div class="footer-cols-2"><ul>__D1__</ul><ul>__D2__</ul></div></div>
       <div><h3>资讯栏目</h3><ul>__INFO__</ul></div>
     </div>
     <div class="footer-note">
@@ -670,7 +672,7 @@ def gen_footer():
       <p>© 2026 自考本科指南 · 内容更新于 __DATE__</p>
     </div>
   </div>
-</footer>''').replace('__DECISION__', decision).replace('__INFO__', info).replace('__DATE__', DATE)
+</footer>''').replace('__D1__', d1).replace('__D2__', d2).replace('__INFO__', info).replace('__DATE__', DATE)
 
 
 def transform(html, page):
