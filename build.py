@@ -739,8 +739,8 @@ def transform(html, page):
             '<a href="%s"%s>%s</a>' % (f, ' class="is-active"' if f == page else '', lab)
             for f, lab in NAV) + '</nav>'
         html = re.sub(r'<nav class="nav"[^>]*>.*?</nav>', nav_html, html, flags=re.S)
-        # 11 面包屑（非首页）
-        if page != 'index.html' and 'CRUMB-MARK' not in html:
+        # 11 面包屑（非首页；页面已有任何 .crumb 都不再插入，避免重复两排）
+        if page != 'index.html' and 'CRUMB-MARK' not in html and 'class="crumb"' not in html:
             crumb = '<div class="crumb"><!--CRUMB-MARK-->首页 <span>›</span> %s</div>' % p['crumb']
             html = re.sub(r'(<main[^>]*>)', r'\1\n' + crumb, html, count=1)
         # 12 长尾 FAQ 增补（守卫）
