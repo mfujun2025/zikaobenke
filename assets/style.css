@@ -359,16 +359,14 @@ td strong { color: var(--ink); }
   font-size: 13px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase;
   color: #fff; background: var(--brand); padding: 8px 16px;
 }
-.prov-cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 1px; background: var(--line); }
-.prov-card {
-  display: flex; flex-direction: column; padding: 14px 16px;
-  background: #fff; border-bottom: 1px solid var(--line); text-decoration: none;
-  color: inherit; transition: background .15s;
+.prov-cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); gap: 1px; background: var(--line); }
+.prov-link {
+  display: block; padding: 12px 14px;
+  background: #fff; text-decoration: none;
+  color: var(--ink); font-weight: 600; font-size: 15px;
+  text-align: center; transition: background .15s, color .15s;
 }
-.prov-card:hover { background: var(--brand-lt); }
-.prov-card .prov-name { font-size: 15.5px; font-weight: 700; color: var(--ink); }
-.prov-card .prov-url { font-size: 13px; color: var(--ink-3); margin-top: 2px; font-family: var(--mono); }
-.prov-card .prov-note { font-size: 12.5px; color: var(--ink-3); margin-top: 4px; line-height: 1.5; }
+.prov-link:hover { background: var(--brand); color: #fff; }
 @media (max-width: 720px) {
-  .prov-cards { grid-template-columns: 1fr; }
+  .prov-cards { grid-template-columns: repeat(3, 1fr); }
 }
