@@ -354,6 +354,15 @@ ARTICLES = [
         'next': [('registration.html', '自考本科报名入口怎么确认'),
                  ('policy.html', '自考本科政策与停考消息怎么辨别')],
     },
+    {
+        'slug': 'thesis-guide',
+        'title': '自考本科毕业论文怎么写？选题、查重、答辩全流程拆解',
+        'desc': '课程全过了不等于能毕业，论文是必经环节。从三个条件筛选题、提纲先确认再动笔、四段式正文结构、查重的正路降重法，到答辩时被追问的三件事，附倒推时间线与官方查证路径。',
+        'date': '2026-10-10',
+        'kw': '自考本科毕业论文',
+        'next': [('timeline.html', '自考本科多久能拿证'),
+                 ('news/work-study-schedule.html', '上班族自考怎么安排时间')],
+    },
 ]
 
 ART_DIR = 'news'
@@ -408,6 +417,12 @@ def transform_article(html, a):
     html = re.sub(r'<meta name="twitter:[^>]*>\s*', '', html)
     html = re.sub(r'<link rel="apple-touch-icon"[^>]*>\s*', '', html)
     html = re.sub(r'<script type="application/ld\+json">.*?</script>\s*', '', html, flags=re.S)
+    # 上面几个删除操作会留下成串空行，反复运行就会每行多堆一个换行符。
+    # 在重新注入前先把 head 里的连续空行折叠掉，保证「跑 N 次和跑 1 次完全一致」。
+    if '</head>' in html:
+        head_part, rest = html.split('</head>', 1)
+        head_part = re.sub(r'\n{3,}', '\n\n', head_part)
+        html = head_part + '</head>' + rest
     html = html.replace('</head>', gen_article_head(a) + '\n</head>')
     nav = '<nav class="nav" aria-label="主导航">' + ''.join(
         '<a href="../%s"%s>%s</a>' % (f, ' class="is-active"' if f == 'news.html' else '', lab)
