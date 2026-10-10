@@ -363,6 +363,15 @@ ARTICLES = [
         'next': [('timeline.html', '自考本科多久能拿证'),
                  ('news/work-study-schedule.html', '上班族自考怎么安排时间')],
     },
+    {
+        'slug': 'degree-application',
+        'title': '自考本科学位证怎么拿？学位外语、平均分、论文成绩三道门槛',
+        'desc': '毕业证和学位证不是一回事，学位也不会自动获得。拆解学位授予最常见的三条硬门槛与三个口径细节，附两条官方查证路径、倒推时间线与四个高频误区。',
+        'date': '2026-10-11',
+        'kw': '自考本科学位证',
+        'next': [('news/thesis-guide.html', '自考本科毕业论文怎么写'),
+                 ('recognition.html', '自考本科学历国家承认吗')],
+    },
 ]
 
 ART_DIR = 'news'
