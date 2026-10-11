@@ -372,6 +372,15 @@ ARTICLES = [
         'next': [('news/thesis-guide.html', '自考本科毕业论文怎么写'),
                  ('recognition.html', '自考本科学历国家承认吗')],
     },
+    {
+        'slug': 'graduation-apply',
+        'title': '自考本科毕业申请怎么办理？流程、材料与时间窗口',
+        'desc': '课程全过了不等于自动毕业，毕业要自己申请。拆解四步流程、前置学历认定与材料核对方法、一年两次的时间窗口怎么倒推，以及四个高频卡点与官方查证路径。',
+        'date': '2026-10-12',
+        'kw': '自考本科毕业申请',
+        'next': [('news/degree-application.html', '自考本科学位证怎么拿'),
+                 ('timeline.html', '自考本科多久能拿证')],
+    },
 ]
 
 ART_DIR = 'news'
