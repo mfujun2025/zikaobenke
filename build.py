@@ -381,6 +381,15 @@ ARTICLES = [
         'next': [('news/degree-application.html', '自考本科学位证怎么拿'),
                  ('timeline.html', '自考本科多久能拿证')],
     },
+    {
+        'slug': 'archive-handling',
+        'title': '自考本科毕业后档案怎么办？存放、转递与自查方法',
+        'desc': '自考毕业材料多由考生本人领取，自己送到档案机构归档。拆解四类合规去向的判断顺序、密封袋验收与不拆封原则、机构对机构的转递流程、「死档」三种成因，附查档路径与动手清单。',
+        'date': '2026-10-13',
+        'kw': '自考毕业后档案',
+        'next': [('news/graduation-apply.html', '自考本科毕业申请怎么办理'),
+                 ('news/chsi-query.html', '自考学历在学信网查不到怎么办')],
+    },
 ]
 
 ART_DIR = 'news'
