@@ -399,6 +399,15 @@ ARTICLES = [
         'next': [('news/degree-application.html', '自考本科学位证怎么拿'),
                  ('news/graduation-apply.html', '自考本科毕业申请怎么办理')],
     },
+    {
+        'slug': 'transfer-exam',
+        'title': '自考跨省转考怎么办理？考籍转入转出流程与注意事项',
+        'desc': '工作调动、回老家发展，自考考了一半要换省考试就得办转考。拆解转考的受理窗口、转出转入两步流程、成绩认定与有效期三个高频疑问，以及「代办转考」话术的识别方法。',
+        'date': '2026-10-15',
+        'kw': '自考跨省转考',
+        'next': [('registration.html', '自考本科报名入口怎么确认'),
+                 ('news/course-selection.html', '自考报考科目怎么选')],
+    },
 ]
 
 ART_DIR = 'news'
