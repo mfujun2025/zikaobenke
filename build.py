@@ -390,6 +390,15 @@ ARTICLES = [
         'next': [('news/graduation-apply.html', '自考本科毕业申请怎么办理'),
                  ('news/chsi-query.html', '自考学历在学信网查不到怎么办')],
     },
+    {
+        'slug': 'degree-english',
+        'title': '自考本科学位英语怎么准备？免考条件与替代路径一次说清',
+        'desc': '学位外语是拿学位证的一道门槛。拆解考试形式与报名入口怎么查、免考与替代的五类常见情形怎么判断、没有免考条件时在职怎么备考，以及「免考包办」「内部题库」的识别方法。',
+        'date': '2026-10-14',
+        'kw': '自考学位英语',
+        'next': [('news/degree-application.html', '自考本科学位证怎么拿'),
+                 ('news/graduation-apply.html', '自考本科毕业申请怎么办理')],
+    },
 ]
 
 ART_DIR = 'news'
