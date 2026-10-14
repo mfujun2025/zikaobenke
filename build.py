@@ -408,6 +408,15 @@ ARTICLES = [
         'next': [('registration.html', '自考本科报名入口怎么确认'),
                  ('news/course-selection.html', '自考报考科目怎么选')],
     },
+    {
+        'slug': 'exemption-apply',
+        'title': '自考免考怎么申请？哪些证书能免、流程与判断方法',
+        'desc': '已考过的内容能不能不考第二次？拆解免考免的到底是什么、四类常见可免情形、三步定位本省规定、申请流程的形状，以及免考对学位平均分与毕业时间的三笔账。',
+        'date': '2026-10-15',
+        'kw': '自考免考申请',
+        'next': [('news/degree-application.html', '自考本科学位证怎么拿'),
+                 ('news/plan-transition.html', '新旧计划衔接对照表怎么用')],
+    },
 ]
 
 ART_DIR = 'news'
