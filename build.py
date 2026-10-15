@@ -417,6 +417,33 @@ ARTICLES = [
         'next': [('news/degree-application.html', '自考本科学位证怎么拿'),
                  ('news/plan-transition.html', '新旧计划衔接对照表怎么用')],
     },
+    {
+        'slug': 'practical-assessment',
+        'title': '自考实践环节考核怎么考？报名、形式与成绩认定',
+        'desc': '自考本科不是只有笔试。实践环节考核的报名窗口、考核形式、成绩认定与不合格处理，和笔试不是一条线。附官方查证路径与三个高频误区。',
+        'date': '2026-10-16',
+        'kw': '自考实践环节考核',
+        'next': [('news/course-selection.html', '自考报考科目怎么选'),
+                 ('news/graduation-apply.html', '自考本科毕业申请怎么办理')],
+    },
+    {
+        'slug': 'exam-schedule',
+        'title': '自考一年考几次？考期怎么排、一年最多能过几门',
+        'desc': '自考一年考几次、每次能报几门、一个考期从报名到出分要多久。把考期排法拆成时间轴与三条约束，附跨年排课取舍与三个高频疑问。',
+        'date': '2026-10-16',
+        'kw': '自考一年考几次',
+        'next': [('registration.html', '自考本科报名入口怎么确认'),
+                 ('timeline.html', '自考本科多久能拿证')],
+    },
+    {
+        'slug': 'prequalification',
+        'title': '自考本科前置学历怎么认定？专科没到手怎么办',
+        'desc': '自考本科毕业要提交国家承认的专科及以上学历。拆解认定标准与查证入口、认定的时机与流程、专科还没拿到时的三种排法与风险，以及四类疑难情形的判断方法。',
+        'date': '2026-10-16',
+        'kw': '自考前置学历认定',
+        'next': [('news/graduation-apply.html', '自考本科毕业申请怎么办理'),
+                 ('recognition.html', '自考本科学历国家承认吗')],
+    },
 ]
 
 ART_DIR = 'news'
