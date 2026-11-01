@@ -1209,6 +1209,15 @@ ARTICLES = [
         'next': [('news/past-papers.html', '自考真题怎么用才有效'),
                  ('news/online-course.html', '自考网课怎么选')],
     },
+    {
+        'slug': 'postgrad-equal',
+        'title': '以同等学力报考和自考本科报考有啥区别？两条路径门槛差在哪',
+        'desc': '考研报名时「以同等学力报考」与「拿着自考本科毕业证报考」是两条完全不同的路径。拆解两者在身份认定、加试要求、材料与风险上的差异，并给一套三步自测帮你判断自己走哪条。',
+        'date': '2026-11-02',
+        'kw': '同等学力报考与自考本科报考区别',
+        'next': [('news/postgraduate.html', '自考本科能考研吗'),
+                 ('recognition.html', '自考本科学历国家承认吗')],
+    },
 ]
 
 ART_DIR = 'news'
